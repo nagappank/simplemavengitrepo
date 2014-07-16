@@ -48,7 +48,7 @@ public class TestRMV {
     
 	driver.get(baseUrl + "/");
 	driver.manage().window().maximize();
-	Thread.sleep(10000);
+	Thread.sleep(20000);
 	
     /*
     
