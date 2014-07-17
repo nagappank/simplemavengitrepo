@@ -39,7 +39,7 @@ public class TestRMV {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://www.google.de";
+    baseUrl = "http://www.google.fr";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
@@ -48,7 +48,24 @@ public class TestRMV {
     
 	driver.get(baseUrl + "/");
 	driver.manage().window().maximize();
-	Thread.sleep(20000);
+	Thread.sleep(5000);
+	
+	 WebElement element = driver.findElement(By.xpath("//span[text()='Recherche Google']"));
+	 String strng = element.getText();
+	 System.out.println(strng);
+	 Assert.assertEquals("Recherche Google",strng);
+	 
+	 Thread.sleep(5000);
+	 
+	 
+	 //driver.findElement(By.id("gs_htif0")).clear();
+	 driver.findElement(By.id("gbqfq")).clear();
+	 driver.findElement(By.id("gbqfq")).sendKeys("teHst");
+	 driver.findElement(By.id("gbqfb")).click();
+	 
+	 Thread.sleep(15000);
+
+
 	
     /*
     
